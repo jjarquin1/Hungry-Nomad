@@ -1,20 +1,29 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { useState } from "react";
 import Navbar from "./components/layout/NavBar";
 import SearchBar from "./components/layout/search";
+import Create from "./pages/create";
+import Login from "./pages/login";
 
 
 function App() {
-  const [page, setPage] = useState("one");
-  const [count, setCount] = useState(0);
 
 
   return (
     <Router>
       <div >
         <Navbar />
-        <SearchBar />
       </div>
+      <Switch>
+        <Route exact path='/'>
+          <SearchBar />
+        </Route>
+        <Route exact path='/create'>
+          <Create />
+        </Route>
+        <Route exact path='/login'>
+          <Login />
+        </Route>
+      </Switch>
     </Router>
   );
 }
