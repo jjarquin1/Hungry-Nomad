@@ -12,6 +12,7 @@ const SearchBar = () => {
 
     useEffect(() => {
         getTrucks().then(({ data }) => {
+            console.log(data);
         });
     }, []);
 

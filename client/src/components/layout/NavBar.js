@@ -4,7 +4,7 @@ const Navbar = () => {
         <nav className='navbar'>
             <h1>The hungry nomads</h1>
             <div className='links'>
-                <Link to='/'>Sign up</Link>
+                <Link to='/'>home</Link>
                 <Link
                     to='/create'
                     style={{
@@ -13,8 +13,9 @@ const Navbar = () => {
                         borderRadius: '8px',
                     }}
                 >
-                    Login
+                    sign up
                 </Link>
+                <Link to='/login'>Login</Link>
             </div>
         </nav>
     );
