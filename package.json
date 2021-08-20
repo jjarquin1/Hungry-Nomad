@@ -1,6 +1,26 @@
 {
-  "dependencies": {
-    "apollo": "^2.33.6",
-    "graphql": "^15.5.1"
+  "name": "hungry-nomad",
+  "version": "1.0.0",
+  "description": "Helps users find their local food trucks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"echo Running Development Mode!\" \"cd server && npm run watch\" \"cd client && npm start\"",
+    "start": "node server/server.js",
+    "install": "cd server && npm i && cd ../client && npm i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjarquin1/Hungry-Nomad.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjarquin1/Hungry-Nomad/issues"
+  },
+  "homepage": "https://github.com/jjarquin1/Hungry-Nomad#readme",
+  "devDependencies": {
+    "concurrently": "^6.2.1"
   }
 }
