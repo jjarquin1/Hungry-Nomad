@@ -33,11 +33,6 @@ const SearchBar = () => {
                     className='btn btn-dark btn-block'
                 ></input>
             </form>
-            {/* {showClear && (
-                <button className='btn btn-light btn-block' onClick={clearUsers}>
-                    Clear
-                </button>
-            )} */}
         </div>
     );
 }
