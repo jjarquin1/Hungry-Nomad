@@ -22,5 +22,9 @@
   "homepage": "https://github.com/jjarquin1/Hungry-Nomad#readme",
   "devDependencies": {
     "concurrently": "^6.2.1"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "react-router-dom": "^5.2.0"
   }
 }
