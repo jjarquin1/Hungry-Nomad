@@ -68,3 +68,8 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
+#searchDiv{
+  display: flex;
+  justify-content: center;
+}
