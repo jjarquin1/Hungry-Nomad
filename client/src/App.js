@@ -1,45 +1,52 @@
-import Button from './components/CustomButton/CustomButton'
-import {useState} from "react";
-import P1 from './pages/PageOne'
-import P2 from './pages/PageTwo'
-import P3 from './pages/PageThree'
-import Navbar from './components/navbar';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+} from '@apollo/client';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Navbar from "./components/layout/NavBar";
+import SearchBar from "./components/layout/search";
+import Create from "./pages/create";
+import Login from "./pages/login";
 
+const client = new ApolloClient({
+  uri: '/graphql',
+  cache: new InMemoryCache(),
+});
 
+// // Construct our main GraphQL API endpoint
+// const httpLink = createHttpLink({
+//   uri: '/graphql',
+// });
 
+// const client = new ApolloClient({
+//   // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
+//   link: authLink.concat(httpLink),
+//   cache: new InMemoryCache(),
+// });
 
 function App() {
-  const [page, setPage] = useState("one");
-  const [count, setCount] = useState(0);
 
-  const renderPage = () => {
-    switch(page){
-      case "one":
-      return <P1/>
-      case "two":
-      return <P2/>
-      case "three":
-      return <P3/>
-    }
-  }
 
   return (
-    <div className="App">
+    <ApolloProvider client={client}>
       <Router>
-
-      <div>
-        <Navbar>
-
-        </Navbar>
-      </div>
-      <Button onClick={() => setPage("one")}/>
-      <Button onClick={() => setPage("two")}/>
-      <Button onClick={() => setPage("three")}/>
-      <button onClick={()=> setCount(count+1)}>{count}</button>
-      {renderPage()}
+        <div >
+          <Navbar />
+        </div>
+        <Switch>
+          <Route exact path='/'>
+            <SearchBar />
+          </Route>
+          <Route exact path='/create'>
+            <Create />
+          </Route>
+          <Route exact path='/login'>
+            <Login />
+          </Route>
+        </Switch>
       </Router>
-    </div>
+    </ApolloProvider>
   );
 }
 

@@ -24,7 +24,14 @@
     "concurrently": "^6.2.1"
   },
   "dependencies": {
-    "bootstrap": "^5.1.0",
-    "react-bootstrap": "^2.0.0-beta.5"
+    "@apollo/client": "^3.4.8",
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "graphql": "^15.5.1",
+    "mogoose": "*",
+    "mongoose": "^5.13.7",
+    "nodemon": "^2.0.12",
+    "react-router-dom": "^5.2.0",
+    "safe-buffer": "^5.2.1"
   }
 }
