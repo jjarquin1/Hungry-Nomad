@@ -11,9 +11,10 @@ const SearchBar = () => {
     }
 
     useEffect(() => {
+        console.log("search component!")
         getTrucks().then(({ data }) => {
             console.log(data);
-        });
+        }).catch(err=> console.log(err));
     }, []);
 
     return (
