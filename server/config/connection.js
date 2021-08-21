@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 //connection to MongoDb
+
 mongoose.connect(
     process.env.MONGODB_URI || 'mongodb://localhost/hungry-nomad',
     {
@@ -10,6 +11,7 @@ mongoose.connect(
         useFindAndModify: false,
     }
 );
+
 
 
 module.exports = mongoose.connection;
