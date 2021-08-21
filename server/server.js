@@ -31,6 +31,7 @@ app.use(express.json());
 // });
 
 db.once('open', () => {
+    console.log("db connected!")
     app.listen(PORT, () => {
         console.log(`API sever running on port ${PORT}!`);
         console.log(`Use GraphQl at http://localhost:${PORT}${server.graphqlPath}`);
