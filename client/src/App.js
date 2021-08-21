@@ -8,6 +8,8 @@ import Navbar from "./components/layout/NavBar";
 import SearchBar from "./components/layout/search";
 import Create from "./pages/create";
 import Login from "./pages/login";
+import Jumbotron from './components/layout/jumbotron';
+
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -45,6 +47,9 @@ function App() {
             <Login />
           </Route>
         </Switch>
+        <Jumbotron>
+          
+        </Jumbotron>
       </Router>
     </ApolloProvider>
   );
