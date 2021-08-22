@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { getTrucks } from "../../utlis/api";
 
 const SearchBar = () => {
@@ -14,7 +15,7 @@ const SearchBar = () => {
         console.log("search component!")
         getTrucks().then(({ data }) => {
             console.log(data);
-        }).catch(err=> console.log(err));
+        }).catch(err => console.log(err));
     }, []);
 
     return (
@@ -28,11 +29,13 @@ const SearchBar = () => {
                     onChange={(e) => setLocation(e.target.value)}
 
                 ></input>
-                <input
-                    type='submit'
-                    value={'search'}
-                    className='btn btn-dark btn-block'
-                ></input>
+                <Link to='/search'>
+                    <input
+                        type='submit'
+                        value={'search'}
+                        className='btn btn-dark btn-block'
+                    ></input>
+                </Link>
             </form>
         </div>
     );
