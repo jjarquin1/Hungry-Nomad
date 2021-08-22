@@ -69,7 +69,17 @@
   cursor: pointer;
 }
 
-#searchDiv{
+#searchDiv {
   display: flex;
   justify-content: center;
+}
+
+.card {
+  padding: 1rem;
+  border: #ccc 1px dotted;
+  margin: 0.7rem 0;
+}
+
+.text-center {
+  text-align: center;
 }
