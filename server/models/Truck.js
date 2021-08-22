@@ -2,17 +2,24 @@ const { Schema } = require('mongoose');
 
 const truckSchema = new Schema(
     {
-        name: {
-            type: String,
-            require: true,
-        },
         id: {
             type: String,
             require: true,
         },
-        alias: {
+        name: {
             type: String,
-            required: true,
+            require: true,
+        },
+        location:{
+            type: String,
+            require: true,
+        },
+        phone:{
+            type: Number,
+        },
+        imageUrl:{
+            type: String,
+            require: true,
         },
         rating: {
             type: Number,
