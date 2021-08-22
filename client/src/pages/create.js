@@ -1,50 +1,95 @@
+import React from 'react';
 import { useState } from "react";
+import { Link } from 'react-router-dom';
+
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utlis/mutations';
+import Auth from '../utlis/auth';
+
 
 const Create = () => {
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [formState, setFormState] = useState({
+        name: '',
+        email: '',
+        password: '',
+    });
+    const [addUser, { error, data }] = useMutation(ADD_USER);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    }
+    // update state based on form input changes
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+
+        setFormState({
+            ...formState,
+            [name]: value,
+        });
+    };
+
+    // submit form
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        console.log(formState);
+
+        try {
+            const { data } = await addUser({
+                variables: { ...formState },
+            });
+
+            Auth.login(data.addUSER.token);
+        } catch (e) {
+            console.error(e);
+        }
+    };
 
 
     return (
         <div className="create">
-            <h2>Create new login</h2>
-            <form onSubmit={handleSubmit}>
-                <input
-                    className="form-input"
-                    placeholder="Your username"
-                    name="username"
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                <input
-                    placeholder="Your email"
-                    name="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                ></input>
-                <input
-                    className="form-input"
-                    placeholder="******"
-                    name="password"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button
-                    className="btn btn-block btn-primary"
-                    style={{ cursor: 'pointer' }}
-                    type="submit"
-                >
-                    Submit
-                </button>
-            </form>
+            {data ? (
+                <p>
+                    Success! You may now head{' '}
+                    <Link to="/">back to the homepage.</Link>
+                </p>
+            ) : (
+                <form onSubmit={handleSubmit}>
+                    <input
+                        className="form-input"
+                        placeholder="Your username"
+                        name="name"
+                        type="text"
+                        value={formState.name}
+                        onChange={handleChange}
+                    />
+                    <input
+                        className="form-input"
+                        placeholder="Your email"
+                        name="email"
+                        type="email"
+                        value={formState.email}
+                        onChange={handleChange}
+                    />
+                    <input
+                        className="form-input"
+                        placeholder="******"
+                        name="password"
+                        type="password"
+                        value={formState.password}
+                        onChange={handleChange}
+                    />
+                    <button
+                        className="btn btn-block btn-info"
+                        style={{ cursor: 'pointer' }}
+                        type="submit"
+                    >
+                        Submit
+                    </button>
+                </form>
+            )}
+
+            {error && (
+                <div className="my-3 p-3 bg-danger text-white">
+                    {error.message}
+                </div>
+            )}
         </div>
     );
 }
