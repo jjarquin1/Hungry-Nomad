@@ -69,10 +69,11 @@
   cursor: pointer;
 }
 
-#searchDiv{
+#searchDiv {
   display: flex;
   justify-content: center;
 }
+
 
 /*profile card*/
 
@@ -420,4 +421,4 @@ body{
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
-}
+

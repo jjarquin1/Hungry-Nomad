@@ -5,7 +5,8 @@ import {
 } from '@apollo/client';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/layout/NavBar";
-import SearchBar from "./components/layout/search";
+import SearchBar from "./components/layout/searchBar";
+import Search from './pages/search'
 import Create from "./pages/create";
 import Login from "./pages/login";
 import Jumbotron from './components/layout/jumbotron';
@@ -47,9 +48,10 @@ function App() {
             <Login />
           </Route>
         </Switch>
-        <Jumbotron>
-          
-        </Jumbotron>
+        <Jumbotron></Jumbotron>
+        <Route exact path='/search'>
+          <Search />
+        </Route>
       </Router>
     </ApolloProvider>
   );
