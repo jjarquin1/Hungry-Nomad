@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+
 const Navbar = () => {
     return (
         <nav className='navbar'>
@@ -19,6 +20,7 @@ const Navbar = () => {
                 <Link to='/login'>Login</Link>
             </div>
         </nav>
+
     );
 };
 
