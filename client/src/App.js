@@ -40,6 +40,7 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <SearchBar />
+            <Jumbotron />
           </Route>
           <Route exact path='/create'>
             <Create />
@@ -48,7 +49,6 @@ function App() {
             <Login />
           </Route>
         </Switch>
-        <Jumbotron></Jumbotron>
         <Route exact path='/search'>
           <Search />
         </Route>
