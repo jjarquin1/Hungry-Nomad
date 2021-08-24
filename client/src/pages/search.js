@@ -1,3 +1,5 @@
+import { FOOD_TRUCK } from '../utlis/mutations';
+
 const Search = () => {
     return (
         <div className='card text-center'>
