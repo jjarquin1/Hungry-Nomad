@@ -5,7 +5,7 @@ const experation = '3h'
 
 module.exports = {
 
-    Middleware: function ({ req }) {
+    authMiddleware: function ({ req }) {
 
         let token = req.body.token || req.query.token || req.headers.authoriztion;
 

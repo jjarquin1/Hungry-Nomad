@@ -23,7 +23,6 @@ const truckSchema = new Schema(
         },
         rating: {
             type: Number,
-            default:0,
         },
         url: {
             type: String,
