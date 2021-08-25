@@ -10,6 +10,7 @@ import Search from './pages/search'
 import Create from "./pages/create";
 import Login from "./pages/login";
 import Jumbotron from './components/layout/jumbotron';
+import Profile from './pages/profile';
 
 
 const client = new ApolloClient({
@@ -51,6 +52,9 @@ function App() {
         </Switch>
         <Route exact path='/search'>
           <Search />
+        </Route>
+        <Route exact path='/profile'>
+          <Profile />
         </Route>
       </Router>
     </ApolloProvider>
