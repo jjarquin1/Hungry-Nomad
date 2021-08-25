@@ -1,4 +1,4 @@
-const { User } = require('../models/User')
+const { User } = require('../models')
 const { AuthenticateionError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth')
 
@@ -6,18 +6,23 @@ const resolvers = {
     Query: {
         User: async () => {
             return User.find({});
-        },
+        }
     },
     Mutation: {
         addUser: async (parent, { username, email, password }) => {
+            console.log("IN RESOLVER");
             // First we create the user
-            const user = await User.create({ username, email, password });
+            // console.log(username, email, password)
+            const data = await User.create({ username, email, password });
+            console.log(data)
             // To reduce friction for the user, we immediately sign a JSON Web Token and log the user in after they are created
-            const token = signToken(user);
+            const token = signToken(data);
+            console.log(token)
             // Return an `Auth` object that consists of the signed token and user's information
-            return { token, user };
+            return { username: data.username, email: data.email, token };
         },
         login: async (parent, { email, password }) => {
+            console.log(email, password)
             // Look up the user by the provided email address. Since the `email` field is unique, we know that only one person will exist with that email
             const user = await User.findOne({ email });
 
@@ -41,6 +46,7 @@ const resolvers = {
             return { token, user };
         }
     }
-
 };
+
+module.exports = resolvers;
 

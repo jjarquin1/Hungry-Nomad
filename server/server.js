@@ -23,16 +23,16 @@ const server = new ApolloServer({
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// if (process.env.NODE_ENV === 'production') {
-//     app.use(express.static(path.join(__dirname, '../client/public')));
-// }
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/public')));
+}
 
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(_dirname, '../client/public/index.html'));
-// });
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/public/index.html'));
+});
 
 db.once('open', () => {
-    console.log("db connected!")
+    console.log("db connected! asdfawefwe")
     app.listen(PORT, () => {
         console.log(`API sever running on port ${PORT}!`);
         console.log(`Use GraphQl at http://localhost:${PORT}${server.graphqlPath}`);
