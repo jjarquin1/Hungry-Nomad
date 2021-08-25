@@ -28,16 +28,17 @@ const Create = () => {
     // submit form
     const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(formState);
+        console.log(formState)
+        const {email, password, name} = formState;
 
         try {
             const { data } = await addUser({
-                variables: { ...formState },
+                variables: { email, password, username: name},
             });
+            Auth.login(data.addUser.token);
 
-            Auth.login(data.addUSER.token);
         } catch (e) {
-            console.error(e);
+            console.error('ERROR', e);
         }
     };
 

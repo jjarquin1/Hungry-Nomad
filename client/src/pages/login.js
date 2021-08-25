@@ -22,15 +22,15 @@ const Login = () => {
     // submit form
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(formState);
+        const {email, password} = formState;
         try {
-            const { data } = await login({
-                variables: { ...formState },
-            });
+            // const { data } = await login({
+            //     variables: { email, password },
+            // });
 
-            Auth.login(data.login.token);
+            // Auth.login(data.login.token);
         } catch (e) {
-            console.error(e);
+            console.log(e);
         }
 
         // clear form values
@@ -76,7 +76,7 @@ const Login = () => {
                 </form>
             )}
 
-            {error && (
+            {!!error && (
                 <div className="my-3 p-3 bg-danger text-white">
                     {error.message}
                 </div>
