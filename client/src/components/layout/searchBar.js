@@ -1,22 +1,28 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import { getTrucks } from "../../utlis/api";
 
 const SearchBar = () => {
-
+    const history = useHistory();
     const [location, setLocation] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        getTrucks(location).then(({ data }) => {
+            console.log(data);
+            history.push('/search', { ...data })
 
+        }).catch(err => console.log(err))
     }
 
-    useEffect(() => {
+    /**
+     * useEffect(() => {
         console.log("search component!")
         getTrucks().then(({ data }) => {
             console.log(data);
         }).catch(err => console.log(err));
     }, []);
+    */
 
     return (
         <div id="searchDiv">
@@ -29,13 +35,12 @@ const SearchBar = () => {
                     onChange={(e) => setLocation(e.target.value)}
 
                 ></input>
-                <Link to='/search'>
-                    <input
-                        type='submit'
-                        value={'search'}
-                        className='btn btn-dark btn-block'
-                    ></input>
-                </Link>
+
+                <input
+                    type='submit'
+                    value={'search'}
+                    className='btn btn-dark btn-block'
+                ></input>
             </form>
         </div>
     );

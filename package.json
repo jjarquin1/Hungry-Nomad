@@ -28,11 +28,13 @@
     "axios": "^0.21.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "font-awesome": "^4.7.0",
     "graphql": "^15.5.1",
     "jwt-decode": "^3.1.2",
     "mogoose": "*",
     "mongoose": "^5.13.7",
     "nodemon": "^2.0.12",
+    "react-rating": "^2.0.5",
     "react-router-dom": "^5.2.0",
     "safe-buffer": "^5.2.1",
     "sass": "^1.38.1"

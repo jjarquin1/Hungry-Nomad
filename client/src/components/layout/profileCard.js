@@ -7,7 +7,7 @@ const ProfileCard = () => {
 			<div className="top-icons">
 				<i className="fas fa-long-arrow-alt-left"></i>
 				<i className="fas fa-ellipsis-v"></i>
-				<i class="far fa-heart"></i>
+				<i className="far fa-heart"></i>
 			</div>
 
 			<div className="profile">
@@ -16,7 +16,7 @@ const ProfileCard = () => {
 				<h3 className="name">Beverly Little</h3>
 				<p className="title">Javascript Developer</p>
 				<p className="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aliquam aliquid porro!</p>
-				<button type="button" class="btn">Hire Me</button>
+				<button type="button" className="btn">Hire Me</button>
 			</div>
 		</div>
 	)
