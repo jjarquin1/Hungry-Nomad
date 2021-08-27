@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../../utlis/queries';
 import Auth from '../../utlis/auth'
 
-const ProfileCard = () => {
+const ProfileCard = (props) => {
 	// If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
 	const { loading, data } = useQuery(QUERY_ME);
 
@@ -12,22 +12,22 @@ const ProfileCard = () => {
 	const profile = data?.User || {};
 	console.log(profile)
 	// Use React Router's `<Redirect />` component to redirect to personal profile page if username is yours
-	if (Auth.loggedIn()) {
-		return <Redirect to="/profile" />;
-	}
+	// if (Auth.loggedIn()) {
+	// 	return <Redirect to="/profile" />;
+	// }
 
-	if (loading) {
-		return <div>Loading...</div>;
-	}
+	// if (loading) {
+	// 	return <div>Loading...</div>;
+	// }
 
-	if (!profile?.name) {
-		return (
-			<h4>
-				You need to be logged in to see your profile page. Use the navigation
-				links above to sign up or log in!
-			</h4>
-		);
-	}
+	// if (!profile?.name) {
+	// 	return (
+	// 		<h4>
+	// 			You need to be logged in to see your profile page. Use the navigation
+	// 			links above to sign up or log in!
+	// 		</h4>
+	// 	);
+	// }
 
 	return (
 

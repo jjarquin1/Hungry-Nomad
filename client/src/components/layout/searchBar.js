@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { getTrucks } from "../../utlis/api";
 
 const SearchBar = () => {
@@ -15,14 +15,6 @@ const SearchBar = () => {
         }).catch(err => console.log(err))
     }
 
-    /**
-     * useEffect(() => {
-        console.log("search component!")
-        getTrucks().then(({ data }) => {
-            console.log(data);
-        }).catch(err => console.log(err));
-    }, []);
-    */
 
     return (
         <div id="searchDiv">

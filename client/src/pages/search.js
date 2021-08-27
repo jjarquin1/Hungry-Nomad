@@ -33,8 +33,9 @@ const Search = () => {
                             </div>
                             <div className='col'>
                                 <p>{trucks.location.display_address}</p>
-                                {/* <p>{trucks.categories}</p> */}
-                                <button className='button'> URL </button>
+                                <BusinessRating reviewCount={trucks.review_count} rating={trucks.rating} />
+                                <p></p>
+                                <p>{trucks.phone}</p>
                             </div>
 
                         </div>
