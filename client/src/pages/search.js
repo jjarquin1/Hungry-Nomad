@@ -1,6 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import { FOOD_TRUCK } from '../utlis/mutations';
-import BusinessRating from '../components/businessRating';
+import BusinessRating from '../components/layout/businessRating';
 import { useState, useEffect } from 'react';
 
 const Search = () => {
@@ -26,7 +25,6 @@ const Search = () => {
                             <div className='col'>
                                 <h3>{trucks.name}</h3>
                                 <img
-                                    //src='https://via.placeholder.com/150'
                                     src={trucks.image_url}
                                     alt='https://via.placeholder.com/150'
                                     className='round-img'
@@ -34,10 +32,8 @@ const Search = () => {
                                 />
                             </div>
                             <div className='col'>
-                                <p>{trucks.rating}</p>
-                                <p>{trucks.location.address1}</p>
-                                <p>{trucks.location.city}</p>
-                                <p>{trucks.location.state}</p>
+                                <p>{trucks.location.display_address}</p>
+                                {/* <p>{trucks.categories}</p> */}
                                 <button className='button'> URL </button>
                             </div>
 

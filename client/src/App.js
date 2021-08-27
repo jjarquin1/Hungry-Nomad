@@ -2,7 +2,9 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
+  createHttpLink
 } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/layout/NavBar";
 import SearchBar from "./components/layout/searchBar";
@@ -12,21 +14,24 @@ import Login from "./pages/login";
 import Jumbotron from './components/layout/jumbotron';
 import Profile from './pages/profile';
 
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : ''
+    }
+  }
+})
 
 const client = new ApolloClient({
-  uri: '/graphql',
   cache: new InMemoryCache(),
+  link: authLink.concat(createHttpLink({ uri: '/graphql' })),
 });
 
 // // Construct our main GraphQL API endpoint
 // const httpLink = createHttpLink({
 //   uri: '/graphql',
-// });
-
-// const client = new ApolloClient({
-//   // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
-//   link: authLink.concat(httpLink),
-//   cache: new InMemoryCache(),
 // });
 
 function App() {

@@ -1,10 +1,11 @@
 const { User } = require('../models')
-const { AuthenticateionError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth')
 
 const resolvers = {
     Query: {
-        User: async () => {
+        User: async (parent, _, context) => {
+            console.log("querying user")
+            console.log(context.user)
             return User.find({});
         }
     },
@@ -41,9 +42,9 @@ const resolvers = {
 
             // If email and password are correct, sign user into the application with a JWT
             const token = signToken(user);
-
+            console.log(user)
             // Return an `Auth` object that consists of the signed token and user's information
-            return { token, user };
+            return { token, email: user.email, username: user.username };
         }
     }
 };
