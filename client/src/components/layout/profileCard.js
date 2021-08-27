@@ -7,7 +7,7 @@ const ProfileCard = () => {
 			<div className="top-icons">
 				<i className="fas fa-long-arrow-alt-left"></i>
 				<i className="fas fa-ellipsis-v"></i>
-				<i class="far fa-heart"></i>
+				<i className="far fa-heart"></i>
 			</div>
 
 			<div className="profile">
