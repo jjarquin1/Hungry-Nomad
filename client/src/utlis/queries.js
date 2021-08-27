@@ -12,7 +12,7 @@ export const QUERY_USER = gql`
 
 export const QUERY_SINGLE_USER = gql`
   query singleUser($userId: ID!) {
-    profile(userId: $userId) {
+    User (userId: $userId) {
       _id
       username
       bio

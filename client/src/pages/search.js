@@ -2,7 +2,7 @@ import { useLocation } from 'react-router-dom';
 import BusinessRating from '../components/layout/businessRating';
 import { useState, useEffect } from 'react';
 
-const Search = () => {
+const Search = (props) => {
     const location = useLocation();
     const [businesses, setBusinesses] = useState([]);
 

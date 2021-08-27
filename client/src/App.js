@@ -25,14 +25,11 @@ const authLink = setContext((_, { headers }) => {
 })
 
 const client = new ApolloClient({
-  cache: new InMemoryCache(),
   link: authLink.concat(createHttpLink({ uri: '/graphql' })),
+  cache: new InMemoryCache(),
 });
 
-// // Construct our main GraphQL API endpoint
-// const httpLink = createHttpLink({
-//   uri: '/graphql',
-// });
+
 
 function App() {
 
