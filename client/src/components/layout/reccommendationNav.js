@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const RecNav = () =>
 {
     return(
-    <main>
+    <main className="recCats me-4 ms-4">
         <nav className="nav d-flex justify-content-evenly">
             <a className="nav-link active" aria-current="page" href="#">Mexican</a>
             <a className="nav-link" href="#">Fusion</a>
