@@ -1,6 +1,46 @@
+import React from "react";
+import { Redirect, useParams } from "react-router-dom";
+import { useQuery } from '@apollo/client';
+import { QUERY_ME } from '../../utlis/queries';
+import Auth from '../../utlis/auth'
+
+
 
 
 const ProfileCard = () => {
+	// If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
+	const { loading, data } = useQuery(QUERY_ME);
+	const { profileId } = useParams();
+
+	// Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
+	// const profile = data?.User || {};
+	// console.log(data)
+
+
+	const profile = Auth.getProfile();
+	// Use React Router's `<Redirect />` component to redirect to personal profile page if username is yours
+	if (Auth.loggedIn() && Auth.getProfile().data._id === profileId) {
+		return <Redirect to="/profile" />;
+	}
+
+	if (loading) {
+		return <div>Loading...</div>;
+	}
+	console.log(Auth.getToken())
+	if (Auth.getToken()=== "Invalid token specified") {
+		return (
+			<h4>
+				You need to be logged in to see your profile page. Use the navigation
+				links above to sign up or log in!
+			</h4>
+		);
+	}
+
+  function logout () {
+	Auth.logout()
+	console.log(Auth.getToken)
+  }
+
 	return (
 
 		<div className="wrapper">
@@ -11,14 +51,16 @@ const ProfileCard = () => {
 			</div>
 
 			<div className="profile">
-				<img src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w" class="thumbnail" />
+				<img src="https://via.placeholder.com/150" class="thumbnail" alt='stuff' />
 				<div className="check"><i class="fas fa-check"></i></div>
-				<h3 className="name">Beverly Little</h3>
+				<h3 className="name">{`Welcome ${profile.data.username}`}</h3>
 				<p className="title">Javascript Developer</p>
 				<p className="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aliquam aliquid porro!</p>
-				<button type="button" className="btn">Hire Me</button>
+				<button id="logout" type="button" className="btn" onClick={logout}> Logout</button>
 			</div>
+
 		</div>
+
 	)
 }
 

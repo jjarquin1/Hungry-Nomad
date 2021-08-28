@@ -13,12 +13,12 @@ export const getTrucks = async (query) => axios
             },
             params: {
                 term: 'food-trucks',
-                // location: 'irvine'
+                
             },
         },
     )
 
 
-            // return fetch(`https://api.yelp.com/v3/${query}/search?location=usa`);
+          
 
 

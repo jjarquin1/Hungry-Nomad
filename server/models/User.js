@@ -17,8 +17,14 @@ const userSchema = new Schema(
         password: {
             type: String,
             required: true,
-        }
-    }, 
+        },
+        favorites: [
+            {
+                type: Schema.Types.ObjectId,
+                ref:'Truck'
+            }
+        ]
+    },
     {
         toJSON: {
             virtuals: true,
@@ -42,4 +48,4 @@ userSchema.methods.isCorrectPassword = async function (password) {
 
 const User = model('User', userSchema);
 
-module.exports = User; 
+module.exports = User;

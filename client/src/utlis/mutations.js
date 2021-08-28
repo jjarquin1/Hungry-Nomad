@@ -14,24 +14,9 @@ export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
-      profile {
-        _id
-        name
-      }
+     email
+     username
     }
   }
 `;
 
-export const FOOD_TRUCK = gql`
-mutation foodTruck($name: String!,$location: String!, $phone: Number!, $imageUrl: String!, $rating: String!, $url:String!){
-  foodTruck(name: $name, location: $location, phone: $phone, imageUrl: $imageUrl, rating: $rating, url: $url) {
-    business {
-      name
-      location
-      phone
-      imageUrl
-      rating
-      url
-    }
-  }
-}`
