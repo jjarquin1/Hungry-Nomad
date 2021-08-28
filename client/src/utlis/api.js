@@ -1,6 +1,6 @@
 // import BEARER_TOKEN from 'dotenv'
 import axios from "axios";
-const isProd = false;
+const isProd = true;
 const cors_proxy = isProd ? '' : 'https://wendy-cors.herokuapp.com/'
 const BEARER_TOKEN = 'KmiJGRMThEuGygNdk0H5p6d-27Jy78zBMsqzHh9CqLSlkmmlsN1VhNaixN51QGz4SoYf39422WaXJuHxdFjNF_Qs6cV2eossjY7oHv_q9WrdSrWgWohx_KUx1D4hYXYx'
 export const getTrucks = async (query) => axios
