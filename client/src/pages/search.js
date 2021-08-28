@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import BusinessRating from '../components/layout/businessRating';
 import { useState, useEffect } from 'react';
+import Auth from '../utlis/auth';
 
 const Search = (props) => {
     const location = useLocation();
@@ -8,6 +9,7 @@ const Search = (props) => {
 
     useEffect(() => {
         console.log(location.state.businesses)
+        console.log(Auth.getToken())
 
         if (location.state.businesses) {
             setBusinesses(location.state.businesses)
@@ -36,6 +38,7 @@ const Search = (props) => {
                                 <BusinessRating reviewCount={trucks.review_count} rating={trucks.rating} />
                                 <p></p>
                                 <p>{trucks.phone}</p>
+                                <button id="favorites">Add to Favorites</button>
                             </div>
 
                         </div>
