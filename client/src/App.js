@@ -13,6 +13,7 @@ import Create from "./pages/create";
 import Login from "./pages/login";
 import Jumbotron from './components/layout/jumbotron';
 import Profile from './pages/profile';
+import Reccomendation from './components/layout/reccomendation';
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
@@ -44,6 +45,8 @@ function App() {
           <Route exact path='/'>
             <SearchBar />
             <Jumbotron />
+            <Reccomendation/>
+
           </Route>
           <Route exact path='/create'>
             <Create />

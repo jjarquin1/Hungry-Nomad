@@ -18,7 +18,7 @@ const Search = (props) => {
 
 
     return (
-        <div>
+        <div className="searchResults">
             {
                 businesses.map(trucks => (
                     <div className="container card">
@@ -34,11 +34,19 @@ const Search = (props) => {
                                 />
                             </div>
                             <div className='col'>
+ fridayFront
+                                <p>{trucks.rating}</p>
+                                <p>{trucks.location.address1}</p>
+                                <p>{trucks.location.city}</p>
+                                <p>{trucks.location.state}</p>
+                                <button className='button'> Add to Favorites </button>
+
                                 <p>{trucks.location.display_address}</p>
                                 <BusinessRating reviewCount={trucks.review_count} rating={trucks.rating} />
                                 <p></p>
                                 <p>{trucks.phone}</p>
                                 <button id="favorites">Add to Favorites</button>
+main
                             </div>
 
                         </div>

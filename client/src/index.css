@@ -78,3 +78,26 @@
   display: flex;
   align-items: center;
 }
+
+
+.truckImg{
+  width: 400px;
+  height: 300px;
+}
+
+
+.jumbotron{
+  -webkit-box-shadow: 5px 5px 13px 0px rgba(0,0,0,0.51); 
+  box-shadow: 5px 5px 13px 0px rgba(0,0,0,0.51);
+  margin: 10px;
+  background-color: black;
+  border-radius: 10px;
+}
+
+.jumbotron h1{
+  color: #f1356d;
+}
+
+.jumbotron p{
+  color: white;
+}
