@@ -22,7 +22,7 @@ export const getTrucks = async (query) => axios
 
 export const getRecommend = async (term) => axios
     .get(
-        `${cors_proxy}https://api.yelp.com/v3/businesses/search?term=${term}`,
+         `${cors_proxy}https://api.yelp.com/v3/businesses/search?term=${term}`,
         {
             headers: {
                 Authorization: `Bearer ${BEARER_TOKEN}`,
