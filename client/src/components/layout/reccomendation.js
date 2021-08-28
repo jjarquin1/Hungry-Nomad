@@ -4,9 +4,11 @@ import { getRecommend } from '../../utlis/api';
 import RecNav from './reccommendationNav';
 import RecLists from './recommendationLists';
 
+
 const Reccomendation = () => {
   const [recData, setRecData] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(false);
+
 
   const onNavChanged = async (navTitle) => {
     setIsLoading(true);

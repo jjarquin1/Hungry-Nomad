@@ -37,9 +37,18 @@
 
 /* create new blog form */
 .create {
-  max-width: 400px;
+  max-width: 750px;
+  height: 450px;
+  background-color: black;
+  background-image: url(../src/images/Logo.png);
+  background-position: center;
+  background-repeat: fill;
   margin: 0 auto;
   text-align: center;
+  padding: 10%;
+  border-radius: 20px;
+  -webkit-box-shadow: 5px 5px 15px -6px #000000; 
+  box-shadow: 5px 5px 15px -6px #000000;
 }
 .create label {
   text-align: left;
@@ -69,6 +78,9 @@
   cursor: pointer;
 }
 
+.create form{
+  margin-top: 20px;
+}
 #searchDiv {
   display: flex;
   justify-content: center;
@@ -100,4 +112,19 @@
 
 .jumbotron p{
   color: white;
+}
+
+.recbar h1{
+  color:#f1356d;
+
+}
+
+.recCats{
+  background:black;
+  border-radius: 10px;
+  -webkit-box-shadow: 5px 5px 13px 0px rgba(0,0,0,0.51); 
+  box-shadow: 5px 5px 13px 0px rgba(0,0,0,0.51);
+}
+.recCats a{
+  color:white;
 }

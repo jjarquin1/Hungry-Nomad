@@ -28,6 +28,7 @@ const recNavs = [
 
 const RecNav = ({ onNavChanged }) => {
 
+
     const onClickHandler = (title) => {
         onNavChanged(title)
     }
@@ -43,5 +44,6 @@ const RecNav = ({ onNavChanged }) => {
         </main>
     );
 };
+
 
 export default RecNav;
