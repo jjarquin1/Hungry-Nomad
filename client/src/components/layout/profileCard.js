@@ -27,7 +27,7 @@ const ProfileCard = () => {
 		return <div>Loading...</div>;
 	}
 	console.log(Auth.getToken())
-	if (!Auth.getToken()=== "Invalid token specified") {
+	if (!Auth.getToken() === "Invalid token specified") {
 		return (
 			<h4>
 				You need to be logged in to see your profile page. Use the navigation
@@ -36,10 +36,13 @@ const ProfileCard = () => {
 		);
 	}
 
-  function logout () {
-	Auth.logout()
-	console.log(Auth.getToken)
-  }
+	function logout() {
+		Auth.logout()
+		console.log(Auth.getToken)
+		Auth.loggedOut()
+	}
+
+
 
 	return (
 
