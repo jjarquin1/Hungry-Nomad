@@ -27,7 +27,7 @@ const ProfileCard = () => {
 		return <div>Loading...</div>;
 	}
 	console.log(Auth.getToken())
-	if (Auth.getToken()=== "Invalid token specified") {
+	if (!Auth.getToken()=== "Invalid token specified") {
 		return (
 			<h4>
 				You need to be logged in to see your profile page. Use the navigation
@@ -52,10 +52,10 @@ const ProfileCard = () => {
 
 			<div className="profile">
 				<img src="https://via.placeholder.com/150" class="thumbnail" alt='stuff' />
-				<div className="check"><i class="fas fa-check"></i></div>
+				{/* <div className="check"><i class="fas fa-check"></i></div> */}
 				<h3 className="name">{`Welcome ${profile.data.username}`}</h3>
 				<p className="title">Javascript Developer</p>
-				<p className="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aliquam aliquid porro!</p>
+				{/* <p className="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aliquam aliquid porro!</p> */}
 				<button id="logout" type="button" className="btn" onClick={logout}> Logout</button>
 			</div>
 
