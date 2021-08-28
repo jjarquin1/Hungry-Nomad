@@ -11,6 +11,7 @@ import Create from "./pages/create";
 import Login from "./pages/login";
 import Jumbotron from './components/layout/jumbotron';
 import Profile from './pages/profile';
+import Reccomendation from './components/layout/reccomendation';
 
 
 const client = new ApolloClient({
@@ -42,6 +43,8 @@ function App() {
           <Route exact path='/'>
             <SearchBar />
             <Jumbotron />
+            <Reccomendation/>
+
           </Route>
           <Route exact path='/create'>
             <Create />

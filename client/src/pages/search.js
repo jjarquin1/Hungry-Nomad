@@ -17,7 +17,7 @@ const Search = () => {
 
 
     return (
-        <div>
+        <div className="searchResults">
             {
                 businesses.map(trucks => (
                     <div className="container card">
@@ -38,7 +38,7 @@ const Search = () => {
                                 <p>{trucks.location.address1}</p>
                                 <p>{trucks.location.city}</p>
                                 <p>{trucks.location.state}</p>
-                                <button className='button'> URL </button>
+                                <button className='button'> Add to Favorites </button>
                             </div>
 
                         </div>
