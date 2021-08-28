@@ -10,7 +10,7 @@ function recommendationLists({ data, loading }) {
         <div className="searchResults">
             {
                 data.map(ele => (
-                    <div className="container card">
+                    <div className="resultsCard container card">
                         <div class="row align-items-start">
 
                             <div className='col'>

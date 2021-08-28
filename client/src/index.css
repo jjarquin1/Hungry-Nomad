@@ -128,3 +128,15 @@
 .recCats a{
   color:white;
 }
+
+.resultsCard{
+  margin-bottom: 5px;
+  -webkit-box-shadow: 5px 5px 15px -6px #000000; 
+  box-shadow: 5px 5px 15px -6px #000000
+}
+
+.resultsCard img{
+ border-radius: 50%;
+ -webkit-box-shadow: 5px 5px 15px -6px #000000; 
+ box-shadow: 5px 5px 15px -6px #000000
+}

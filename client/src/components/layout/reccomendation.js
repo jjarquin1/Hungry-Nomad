@@ -24,8 +24,8 @@ const Reccomendation = () => {
   };
 
   return (
-    <div className='text-center'>
-      <h1 className='m-4'>Recommendations</h1>
+    <div className='recbar text-center'>
+      <h1>Recommendations</h1>
       <RecNav onNavChanged={onNavChanged} />
       <RecLists data={recData} loading={isLoading} />
     </div>
