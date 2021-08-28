@@ -34,7 +34,7 @@ const RecNav = ({ onNavChanged }) => {
     }
     return (
         <main>
-            <nav className='nav d-flex justify-content-evenly'>
+            <nav className='recCats nav d-flex justify-content-evenly'>
                 {recNavs.map((nav) => (
                     <a key={nav.id} className='nav-link ' aria-current='page' onClick={() => onClickHandler(nav.title)}>
                         {nav.title}
