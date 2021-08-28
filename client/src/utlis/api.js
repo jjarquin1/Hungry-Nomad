@@ -9,16 +9,34 @@ export const getTrucks = async (query) => axios
         {
             headers: {
                 Authorization: `Bearer ${BEARER_TOKEN}`,
-                'Access-Control-Allow-Origin': '*'
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json'
             },
             params: {
                 term: 'food-trucks',
-                
+
             },
         },
     )
 
 
-          
+export const getRecommend = async (term) => axios
+    .get(
+        `${cors_proxy}https://api.yelp.com/v3/businesses/search?term=${term}`,
+        {
+            headers: {
+                Authorization: `Bearer ${BEARER_TOKEN}`,
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json'
+            },
+            params: {
+                location: 'california',
+
+            },
+
+        },
+    )
+
+
 
 
