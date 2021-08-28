@@ -5,6 +5,8 @@ import { QUERY_ME } from '../../utlis/queries';
 import Auth from '../../utlis/auth'
 
 
+
+
 const ProfileCard = () => {
 	// If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
 	const { loading, data } = useQuery(QUERY_ME);
@@ -24,8 +26,8 @@ const ProfileCard = () => {
 	if (loading) {
 		return <div>Loading...</div>;
 	}
-
-	if (!profile.data.username) {
+	console.log(Auth.getToken())
+	if (Auth.getToken()=== "Invalid token specified") {
 		return (
 			<h4>
 				You need to be logged in to see your profile page. Use the navigation
@@ -34,6 +36,10 @@ const ProfileCard = () => {
 		);
 	}
 
+  function logout () {
+	Auth.logout()
+	console.log(Auth.getToken)
+  }
 
 	return (
 
@@ -50,7 +56,7 @@ const ProfileCard = () => {
 				<h3 className="name">{`Welcome ${profile.data.username}`}</h3>
 				<p className="title">Javascript Developer</p>
 				<p className="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aliquam aliquid porro!</p>
-				<button type="button" className="btn" >Logout</button>
+				<button id="logout" type="button" className="btn" onClick={logout}> Logout</button>
 			</div>
 
 		</div>

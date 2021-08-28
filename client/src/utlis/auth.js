@@ -14,6 +14,11 @@ class AuthService {
         return token ? true : false;
     }
 
+    loggedOut() {
+        const token = this.getToken()
+        return token ? false: true;
+    }
+
     getToken() {
         // Retrieves the user token from localStorage
         return localStorage.getItem('id_token');
